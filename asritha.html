@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 20px;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        .hero {
+            background: #f4f4f4;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .blog-posts {
+            margin: 20px auto;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .post {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .post h3 {
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #333;
+            background: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: #ddd;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+            }
+
+            .burger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">My Blog</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section class="hero" id="home">
+            <h2>Welcome to My Blog</h2>
+            <p>Sharing my thoughts and insights on web development, technology, and more.</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p> Hi am Asritha Sai!
+            <br>
+            I'm a passionate web developer and technology enthusiast. This blog is where I share my ideas and experiences in the world of development and beyond. I’m particularly interested in front-end development and the latest tech trends. </p>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-posts" id="blog">
+            <article class="post">
+                <h3>The Power of Small Habits</h3>
+                <p class="short-description">Ever wondered how tiny habits can lead to massive change? Read more to explore the power of consistency in achieving your goals.</p>
+                <p class="full-content" style="display:none;">Small habits, when repeated consistently, can compound into significant transformations. It's not the single act that counts, but the accumulation of effort over time. Whether it's 10 minutes of daily exercise or reading a few pages a day, these small actions add up to big results in the long run.</p>
+                <a href="#" class="read-more" data-target="post1">Read More</a>
+            </article>
+
+            <article class="post">
+                <h3>The Art of Letting Go</h3>
+                <p class="short-description">Sometimes, the hardest thing to do is to let go of things we can't control. Dive into the concept of detachment and the freedom it brings.</p>
+                <p class="full-content" style="display:none;">Letting go is a practice of releasing attachment to outcomes, people, or situations that are beyond our control. By embracing uncertainty and allowing things to unfold naturally, we create space for peace and acceptance. This process of detachment is often key to finding inner freedom and happiness.</p>
+                <a href="#" class="read-more" data-target="post2">Read More</a>
+            </article>
+
+            <article class="post">
+                <h3>The Beauty of Imperfection</h3>
+                <p class="short-description">Perfection is an illusion. Embracing imperfections can open up new perspectives and lead to personal growth. Explore the beauty in flaws.</p>
+                <p class="full-content" style="display:none;">In a world that often glorifies perfection, it's essential to recognize that imperfection is where true beauty and growth lie. When we accept our flaws and the flaws in others, we learn to appreciate the uniqueness that makes life interesting. Wabi-sabi, a Japanese philosophy, teaches us to find beauty in the imperfect and incomplete.</p>
+                <a href="#" class="read-more" data-target="post3">Read More</a>
+            </article>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out via email at: <a href="mailto:example@example.com">asrithasai.v@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle "Read More" functionality
+        document.querySelectorAll('.read-more').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                const fullContent = this.previousElementSibling;
+                if (fullContent.style.display === 'none') {
+                    fullContent.style.display = 'block';
+                    this.textContent = 'Read Less';
+                } else {
+                    fullContent.style.display = 'none';
+                    this.textContent = 'Read More';
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetSection = document.querySelector(this.getAttribute('href'));
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Burger menu toggle
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+    </script>
+</body>
+
+</html>
